@@ -1,0 +1,8 @@
+{
+  "name": "R Rose Beauty Parlour",
+  "description": "Premium local beauty parlour in Kompally, Hyderabad offering personalized beauty services, hairstyling, makeup, waxing, and more.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
