@@ -35,10 +35,14 @@ export function Navbar() {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <a href="#home" className="flex flex-col relative z-50">
-            <span className="font-serif text-2xl font-semibold tracking-wide text-rrose-primary">
+            <span className={`font-serif text-2xl font-semibold tracking-wide transition-colors ${
+              isScrolled ? 'text-rrose-primary' : 'text-rrose-primary lg:text-white'
+            }`}>
               {BUSINESS_INFO.shortName}
             </span>
-            <span className="text-[10px] uppercase tracking-[0.2em] text-rrose-text-light font-medium -mt-1">
+            <span className={`text-[10px] uppercase tracking-[0.2em] font-medium -mt-1 transition-colors ${
+              isScrolled ? 'text-rrose-text-light' : 'text-rrose-text-light lg:text-white/80'
+            }`}>
               BEAUTY PARLOUR
             </span>
           </a>
@@ -50,20 +54,24 @@ export function Navbar() {
                 <a 
                   key={link.name} 
                   href={link.href}
-                  className="text-sm font-medium text-rrose-text-light hover:text-rrose-primary transition-colors"
+                  className={`text-sm font-medium transition-colors hover:text-rrose-accent ${
+                    isScrolled ? 'text-rrose-text-light' : 'text-white/90'
+                  }`}
                 >
                   {link.name}
                 </a>
               ))}
             </div>
-            <Button as="a" href={BUSINESS_INFO.whatsappLink} target="_blank" size="sm">
+            <Button as="a" href={BUSINESS_INFO.whatsappLink} target="_blank" size="sm" variant={isScrolled ? 'primary' : 'outline'} className={isScrolled ? '' : 'text-white border-white hover:bg-white hover:text-rrose-text'}>
               Book Appointment
             </Button>
           </nav>
 
           {/* Mobile Menu Toggle */}
           <button 
-            className="md:hidden relative z-50 p-2 -mr-2 text-rrose-text"
+            className={`md:hidden relative z-50 p-2 -mr-2 transition-colors ${
+              isScrolled || mobileMenuOpen ? 'text-rrose-text' : 'text-rrose-text lg:text-white'
+            }`}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
